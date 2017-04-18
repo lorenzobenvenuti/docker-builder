@@ -8,6 +8,8 @@ import sys
 
 
 def to_str_dictionary(d):
+    if d is None:
+        return {}
     return {k: str(v) for k, v in d.items()}
 
 
@@ -17,10 +19,11 @@ def build(name, directory, images):
         tags = image['tags']
         main_tag = "{}:{}".format(name, tags[0])
         curr_dir = image.get('dir', None) or directory
+        build_args = image.get('args', None)
         print "Building image {}".format(main_tag)
         img = client.images.build(path=curr_dir,
                                   tag=main_tag,
-                                  buildargs=to_str_dictionary(image['args']),
+                                  buildargs=to_str_dictionary(build_args),
                                   rm=True)
         for tag in tags[1:]:
             print "Tagging image {} -> {}".format(main_tag, tag)
