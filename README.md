@@ -2,7 +2,7 @@
 
 A simple tool to build Docker images.
 
-In some cases you need to build different variations of the same Docker image. For instance, you may want to test a JEE application with different JDKs and application servers versions: in this case you can configure your build using a yaml file and build/tag all the variations automatically.
+In some cases you need to build different variations of the same Docker image. For instance, you may want to test a JEE application with different JDKs and application servers versions: in this case you can configure your build using a yaml file and build/tag all the variants automatically.
 
 ```
 name: my-registry:5000/lorenzobenvenuti/wildlfy
